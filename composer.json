@@ -1,0 +1,29 @@
+{
+    "name": "orajo/zf2-tus",
+    "description": "Zend Framework 2 module for Tus protocol", 
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jarosław Wasilewski",
+            "email": "orajo@windowslive.com"
+        }
+    ],
+    "repositories": [
+        {
+			"url": "https://github.com/Orajo/zf2-tus-server.git",
+			"type": "vcs"
+		}
+	],
+    "require": {
+        "orajo/zf2-tus-server": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Zf2Tus\\": "src/"
+        },
+        "classmap": [
+            "./Module.php"
+        ]
+    }
+}
