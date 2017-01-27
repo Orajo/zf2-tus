@@ -5,10 +5,10 @@ namespace Zf2Tus;
 return [
     'router' => [
         'routes' => [
-            'attachments' => [
+            'tus' => [
                 'type' => 'Literal',
                 'options' => [
-                    'route' => '/attachments',
+                    'route' => '/tus',
                     'defaults' => [
                         '__NAMESPACE__' => __NAMESPACE__.'\Controller',
                         'controller' => 'Index',
