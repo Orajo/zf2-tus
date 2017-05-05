@@ -16,7 +16,7 @@
 		}
 	],
     "require": {
-        "orajo/zf2-tus-server": "dev-master"
+        "orajo/zf2-tus-server": "^1.0"
     },
     "autoload": {
         "psr-4": {
