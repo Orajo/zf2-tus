@@ -15,14 +15,14 @@ class Module {
         $eventManager = $e->getApplication()->getEventManager();
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
-        defined('APPLICATION_DATA') || define('APPLICATION_DATA', __DIR__ . '/../../data');
+        defined('APPLICATION_DATA') || define('APPLICATION_DATA', __DIR__ . '/../../../data');
     }
 
     public function getConfig() {
         $config = array();
         $configFiles = array(
-            __DIR__ . '/config/module.config.php',
-            __DIR__ . '/config/router.config.php',
+            __DIR__ . '/../config/module.config.php',
+            __DIR__ . '/../config/router.config.php',
         );
 
         foreach ($configFiles as $configFile) {
