@@ -10,24 +10,33 @@ use Zend\Mvc\Controller\AbstractActionController;
 
 class IndexController extends AbstractActionController {
 
+    /**
+     * @var array
+     */
+    private $config;
+
+    public function __construct(array $config) {
+
+        $this->config = $config;
+    }
+
     public function indexAction() {
         $storeLocation = '';
 
-        $config = $this->getServiceLocator()->get('Config');
-        if (isset($config['uploading']['zf_tus_server']['storage_patch'])) {
-            $storeLocation = $config['uploading']['zf_tus_server']['storage_patch'];
+        if (isset($this->config['uploading']['zf_tus_server']['storage_patch'])) {
+            $storeLocation = $this->config['uploading']['zf_tus_server']['storage_patch'];
         }
         else {
             throw new \Exception('Error in configuration of ZfTusServer storage path.');
         }
 
         if (!file_exists($storeLocation)) {
-            mkdir($storeLocation, $config['uploading']['zf_tus_server']['dirChmod']);
+            mkdir($storeLocation, $this->config['uploading']['zf_tus_server']['dirChmod']);
         }
 
         $debug = false;
-        if (isset($config['uploading']['zf_tus_server']['allow_download_info'])) {
-            $debug = $config['uploading']['zf_tus_server']['allow_download_info'];
+        if (isset($this->config['uploading']['zf_tus_server']['allow_download_info'])) {
+            $debug = $this->config['uploading']['zf_tus_server']['allow_download_info'];
         }
 
         // Create and configure server
