@@ -5,10 +5,12 @@
  */
 namespace Zf2Tus;
 
+use Zf2Tus\Controller\Factory\IndexControllerFactory;
+
 return array(
     'controllers' => array(
-        'invokables' => array(
-            __NAMESPACE__.'\Controller\Index' => __NAMESPACE__.'\Controller\IndexController',
+        'factories' => array(
+            __NAMESPACE__.'\Controller\Index' => IndexControllerFactory::class,
         ),
     ),
     'view_manager' => [
