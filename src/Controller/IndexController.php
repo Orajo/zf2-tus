@@ -22,8 +22,8 @@ class IndexController extends AbstractActionController {
 
     public function indexAction() {
 
-        if (isset($this->config['storage_patch'])) {
-            $storeLocation = $this->config['storage_patch'];
+        if (isset($this->config['storage_path'])) {
+            $storeLocation = $this->config['storage_path'];
         }
         else {
             throw new InvalidConfigurationException('Error in configuration of ZfTusServer storage path.');
@@ -38,9 +38,7 @@ class IndexController extends AbstractActionController {
         $debug = $this->config['allow_download_info'] ?? false;
 
         // Create and configure server
-        $server = new Server(
-                $storeLocation, $this->getRequest(), $debug
-        );
+        $server = new Server($storeLocation, $this->getRequest(), $debug);
 
         // Run server
         $server->process(true);
