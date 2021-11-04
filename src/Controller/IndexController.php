@@ -1,7 +1,7 @@
 <?php
 namespace Zf2Tus\Controller;
 
-use Zend\Mvc\Controller\AbstractActionController;
+use Laminas\Mvc\Controller\AbstractActionController;
 use Zf2Tus\Exception\InvalidConfigurationException;
 use ZfTusServer\Server;
 
@@ -20,6 +20,12 @@ class IndexController extends AbstractActionController {
         $this->config = $config['uploading']['zf_tus_server'];
     }
 
+    /**
+     * @throws InvalidConfigurationException
+     * @throws \ZfTusServer\Exception\Request
+     * @throws \ZfTusServer\Exception\File
+     * @throws \ZfTusServer\Exception\BadHeader
+     */
     public function indexAction() {
 
         if (isset($this->config['storage_path'])) {

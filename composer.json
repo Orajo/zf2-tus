@@ -1,6 +1,6 @@
 {
     "name": "orajo/zf2-tus",
-    "description": "Zend Framework 2 module for Tus protocol", 
+    "description": "Laminas module for Tus protocol",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -11,12 +11,14 @@
     ],
     "repositories": [
         {
-			"url": "https://github.com/Orajo/zf2-tus-server.git",
-			"type": "vcs"
-		}
-	],
+            "url": "https://github.com/Orajo/zf2-tus-server.git",
+            "type": "vcs"
+        }
+    ],
     "require": {
-        "orajo/zf2-tus-server": "^1.0"
+        "orajo/zf2-tus-server": "^2.0",
+        "laminas/laminas-servicemanager": "3.*",
+        "laminas/laminas-dependency-plugin": "^2.1"
     },
     "autoload": {
         "psr-4": {
