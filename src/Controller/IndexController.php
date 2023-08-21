@@ -2,6 +2,7 @@
 namespace Zf2Tus\Controller;
 
 use Laminas\Mvc\Controller\AbstractActionController;
+use League\Flysystem\Filesystem;
 use Zf2Tus\Exception\InvalidConfigurationException;
 use ZfTusServer\Server;
 
@@ -11,13 +12,18 @@ class IndexController extends AbstractActionController {
      * @var array
      */
     private $config;
+    private Filesystem $filesystem;
 
-    public function __construct(array $config) {
+    public function __construct(
+        array $config,
+        Filesystem $filesystem
+    ) {
 
         if (!isset($config['uploading']['zf_tus_server'])) {
             throw new InvalidConfigurationException('Error in configuration of ZfTusServer - no [uploading][zf_tus_server] keys in configuration.');
         }
         $this->config = $config['uploading']['zf_tus_server'];
+        $this->filesystem = $filesystem;
     }
 
     /**
@@ -44,7 +50,7 @@ class IndexController extends AbstractActionController {
         $debug = $this->config['allow_download_info'] ?? false;
 
         // Create and configure server
-        $server = new Server($storeLocation, $this->getRequest(), $debug);
+        $server = new Server($storeLocation, $this->getRequest(), $this->filesystem, $debug);
 
         // Run server
         $server->process(true);
