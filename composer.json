@@ -16,9 +16,8 @@
         }
     ],
     "require": {
-        "orajo/zf2-tus-server": "^2.0",
-        "laminas/laminas-servicemanager": "3.*",
-        "laminas/laminas-dependency-plugin": "^2.1"
+        "orajo/zf2-tus-server": "dev-develop",
+        "laminas/laminas-servicemanager": "3.*"
     },
     "autoload": {
         "psr-4": {
