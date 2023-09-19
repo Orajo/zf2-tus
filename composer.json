@@ -16,7 +16,7 @@
         }
     ],
     "require": {
-        "orajo/zf2-tus-server": "^2.0",
+        "orajo/zf2-tus-server": "dev-develop",
         "laminas/laminas-servicemanager": "3.*"
     },
     "autoload": {
