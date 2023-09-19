@@ -17,12 +17,16 @@
     ],
     "require": {
         "orajo/zf2-tus-server": "^2.0",
-        "laminas/laminas-servicemanager": "3.*",
-        "laminas/laminas-dependency-plugin": "^2.1"
+        "laminas/laminas-servicemanager": "3.*"
     },
     "autoload": {
         "psr-4": {
             "Zf2Tus\\": "src/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "laminas/laminas-dependency-plugin": true
         }
     }
 }
